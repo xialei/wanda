@@ -1,0 +1,71 @@
+@(articles: List[models.Article], activeSort: String)
+
+@main("Welcome to wanda.com") {
+
+<div class="container">
+  	<ol class="breadcrumb">
+  	<li><a href="@routes.Application.index">Home</a></li>
+  	<li><a href="@routes.UserService.show">Admin Console</a></li>
+  	<li class="active">Articles</li>
+	</ol>
+    <div>
+
+	    <!-- Split button -->
+	    <div class="row well">
+			<div class="input-group">
+				<div class="col-md-4">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" id="category" data-toggle="dropdown">Publisher<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Title</a></li>
+							<li><a href="#">Industry</a></li>
+							<li><a href="#">Publisher</a></li>
+						</ul>
+						<input type="text" class="form-control" id="searchbox" value="" placeholder="Filter by computer name...">
+						<a class="btn btn-primary" id="searchsubmit" href="@routes.Articles.showCreationForm"><i class="icon-search icon-white"></i>Search</a>
+					</div>
+				</div>
+				<div class="col-md-8">
+			    	<a class="btn btn-success pull-right" id="add" href="@routes.Articles.showCreationForm"><i class="icon-plus-sign icon-white"></i>Add a new article</a>
+			    </div>
+			</div>
+		</div>
+		    
+      	<div id="sort">
+        	<span>@Messages("label.sort") <i class="icon-sort icon-white"></i> </span>
+	        <ul class="nav nav-pills">
+	          <li @if(activeSort == "title"){class="active"}><a href="@routes.Articles.index?sort=title"><i class="icon-sort-up icon-white"></i>title</a></li>
+	          <li @if(activeSort == "-title"){class="active"}><a href="@routes.Articles.index?sort=-title"><i class="icon-sort-down icon-white"></i>title</a></li>
+	          <li @if(activeSort == "publisher"){class="active"}><a href="@routes.Articles.index?sort=publisher"><i class="icon-sort-up icon-white"></i>publisher</a></li>
+	          <li @if(activeSort == "-publisher"){class="active"}><a href="@routes.Articles.index?sort=-publisher"><i class="icon-sort-down icon-white"></i>publisher</a></li>
+	          <li @if(activeSort == "creationDate"){class="active"}><a href="@routes.Articles.index?sort=creationDate"><i class="icon-sort-up icon-white"></i>pubdate</a></li>
+	          <li @if(activeSort == "-creationDate"){class="active"}><a href="@routes.Articles.index?sort=-creationDate"><i class="icon-sort-down icon-white"></i>pubdate</a></li>
+	          <li @if(activeSort == "none"){class="active"}><a href="@routes.Articles.index">none</a></li>
+	        </ul>
+      	</div>
+      	
+      	<br>
+      	<div>
+		    @if(articles.isEmpty) {
+		        <p>No articles available yet.</p>
+		    } else {
+		     	<ul>
+				     @articles.map { article =>
+				       <li><a href="@routes.Articles.showEditForm(article.id)">@article.title</a> <em> by @article.pub </em> (last modified : @article.pdt) - <a href="@routes.Articles.delete(article.id)" class="delete">delete</a></li>
+				     }
+		     	</ul>
+		     	
+		     	<ul class="pagination">
+				<li class="disabled"><a href="#">&laquo;</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">&raquo;</a></li>
+				</ul>
+		    }
+			
+		</div>
+    </div>
+
+</div>
+}

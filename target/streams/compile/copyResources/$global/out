@@ -1,0 +1,5 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/Users/roger/workspace/poc/wanda/conf/application-logger.xml,/Users/roger/workspace/poc/wanda/target/scala-2.10/classes/application-logger.xml)[0m
+[0m[[0mdebug[0m] [0m	(/Users/roger/workspace/poc/wanda/conf/application.conf,/Users/roger/workspace/poc/wanda/target/scala-2.10/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/Users/roger/workspace/poc/wanda/conf/messages.zh,/Users/roger/workspace/poc/wanda/target/scala-2.10/classes/messages.zh)[0m
+[0m[[0mdebug[0m] [0m	(/Users/roger/workspace/poc/wanda/conf/routes,/Users/roger/workspace/poc/wanda/target/scala-2.10/classes/routes)[0m

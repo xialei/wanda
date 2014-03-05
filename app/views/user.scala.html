@@ -1,0 +1,21 @@
+@(user: User) 
+
+@import helper.twitterBootstrap._
+
+@main("Welcome to Wanda.com") {
+
+<div class="container">
+	<ol class="breadcrumb">
+  		<li><a href="@routes.Application.index">Home</a></li>
+  		<li class="active">@user.email</li>
+	</ol>
+	<div class="row-fluid">
+		<div class="span12">
+			 <p><a class="btn btn-default" href="@routes.Articles.index">@Messages("admin.console") &raquo;</a></p>
+			 <p><a class="btn btn-default" href="@routes.Articles.index">@Messages("admin.statistic") &raquo;</a></p>
+		</div>
+	</div>
+</div>
+<!-- /container -->
+
+}
